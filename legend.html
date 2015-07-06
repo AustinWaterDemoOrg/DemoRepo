@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="esri-map-example">
+    <head>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+        <meta charset="utf-8">
+        <title>Legend Example</title>
+
+        <!-- load Esri CSS -->
+        <link rel="stylesheet" type="text/css" href="http://js.arcgis.com/3.13/esri/css/esri.css">
+    </head>
+
+    <body ng-controller="MapController">
+
+
+        <h2>Legend Example</h2>
+
+
+        <!-- add map to page and bind to scope map parameters -->
+        <div>
+            <div style="float:left; height:100%;">
+        	<esri-map id="map" center="map.center" zoom="map.zoom" basemap="topo">
+                  <esri-map-layer title="Austin Water Network" url="http://awgisweb.austinwater.com:6080/arcgis/rest/services/Austinwater/MapServer/"></esri-map-layer>
+
+                
+                  <div esri-legend target-id="legend"></div>
+                  <dev esri-locate-button target-id="locateButton"></dev>
+                </esri-map>
+
+            </div>
+            <div style="float: left;">
+                <div id="legend"></div>
+		        <div id="LocateButton"></div>
+            </div>
+        </div>
+
+
+
+
+        <!-- load Esri JavaScript API.  MOVE THIS TO THE REST OF THE DECLARATIONS -->
+        <script type="text/javascript" src="http://js.arcgis.com/3.13compact"></script>
+
+
+        <!-- load Angular---CAN PROBABLY DELETE THIS WHEN INTEGRATING WITH THE LARGER PROJECT -->
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+
+
+
+        <!-- THIS IS THE LOCAL ESRI ANGULAR DIRECTIVES PACKAGE WITH THE ADDITIONAL DIRECTIVE LOADED.  THIS NEEDS TO BE IN THE INTEGRATED PROJECT.-->
+        <script src="../angular-gis/dist/angular-esri-map.js"></script>
+
+        <!-- run example app controller -->
+        <script type="text/javascript">
+            angular.module('esri-map-example', ['esri.map'])
+                .controller('MapController', function ($scope) {
+                    $scope.map = {
+                        center: {
+                            lng: -97.734681,
+                            lat: 30.269756
+                        },
+                        zoom: 17
+                    };
+                });
+        </script>
+    </body>
+</html>
