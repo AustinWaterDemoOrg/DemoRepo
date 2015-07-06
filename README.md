@@ -1,3 +1,3 @@
 # DemoRepo
-This is a repo for demo purposes.  This should be thought of as a playground for github, figuring some things out, etc.  
+Added angular directives for working with esri gis.  Based on this project: https://github.com/Esri/angular-esri-map and adds 2 new directives.  We will schedule something to review and to get integrated.
 
